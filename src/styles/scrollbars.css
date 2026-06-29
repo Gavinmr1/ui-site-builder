@@ -1,0 +1,146 @@
+/* Custom Scrollbar Styling */
+
+/* ─── Webkit Scrollbar (Chrome, Safari, Edge) ────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4b5563;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00d4ff;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #00a8cc;
+}
+
+/* ─── Specific Panel Scrollbars ────────────────────────────────────────────────── */
+
+.left-sidebar::-webkit-scrollbar-thumb {
+  background: #4b5563;
+}
+
+.left-sidebar::-webkit-scrollbar-thumb:hover {
+  background: #00d4ff;
+}
+
+.right-panel::-webkit-scrollbar-thumb {
+  background: #4b5563;
+}
+
+.right-panel::-webkit-scrollbar-thumb:hover {
+  background: #00d4ff;
+}
+
+.canvas-viewport::-webkit-scrollbar-thumb {
+  background: #4b5563;
+}
+
+.canvas-viewport::-webkit-scrollbar-thumb:hover {
+  background: #00d4ff;
+}
+
+/* ─── Firefox Scrollbar (using scrollbar-color & scrollbar-width) ────────────── */
+
+* {
+  scrollbar-color: #4b5563 transparent;
+  scrollbar-width: thin;
+}
+
+*:hover {
+  scrollbar-color: #00d4ff transparent;
+}
+
+/* ─── Layer/Panel Containers ──────────────────────────────────────────────────── */
+
+[role="region"],
+.properties-panel,
+.layers-panel,
+.components-panel {
+  scrollbar-color: #4b5563 transparent;
+  scrollbar-width: thin;
+}
+
+[role="region"]:hover,
+.properties-panel:hover,
+.layers-panel:hover,
+.components-panel:hover {
+  scrollbar-color: #00d4ff transparent;
+}
+
+/* ─── Smooth Scrolling ──────────────────────────────────────────────────────────── */
+
+html {
+  scroll-behavior: smooth;
+}
+
+.left-sidebar,
+.right-panel,
+.canvas-viewport,
+[role="region"],
+.properties-panel,
+.layers-panel,
+.components-panel {
+  scroll-behavior: smooth;
+}
+
+/* ─── Resizable Panels ────────────────────────────────────────────────────────── */
+
+[data-panel-group] {
+  height: 100%;
+  width: 100%;
+}
+
+[data-panel] {
+  height: 100%;
+  overflow: hidden;
+}
+
+.left-sidebar,
+.right-panel,
+.canvas-viewport {
+  height: 100%;
+  min-height: 0;
+}
+
+.panel-resize-handle {
+  transition: background-color 0.2s ease;
+}
+
+.panel-resize-handle:hover {
+  background-color: #00d4ff !important;
+}
+
+/* ─── Focus Visibility & Motion Accessibility ─────────────────────────────── */
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid #22d3ee;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px rgba(34, 211, 238, 0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
